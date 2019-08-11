@@ -3,20 +3,28 @@
 Search google cloud icons portal.
 Icons are available for download from https://cloud.google.com/icons/
 
-```
+```bash
 npm install
 ```
 
-```
+```bash
 npm run dev
 ```
 
-```
+```bash
 npm run start
 ```
 
-```
+```bash
 npm run export
+```
+
+```bash
+npm run deploy
+```
+
+```bash
+npm run test
 ```
 
 ## Useful Commands
