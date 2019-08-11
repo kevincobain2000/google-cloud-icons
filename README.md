@@ -1,0 +1,11 @@
+## Demo app
+
+Search google cloud icons portal.
+Icons are available for download from https://cloud.google.com/icons/
+
+
+## Useful Commands
+
+```bash
+tree -J static/GCP\ Icons/Products\ \&\ Services
+```
