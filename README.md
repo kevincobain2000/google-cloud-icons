@@ -3,6 +3,22 @@
 Search google cloud icons portal.
 Icons are available for download from https://cloud.google.com/icons/
 
+```
+npm install
+```
+
+```
+npm run dev
+```
+
+```
+npm run start
+```
+
+```
+npm run export
+```
+
 ## Useful Commands
 
 ```bash

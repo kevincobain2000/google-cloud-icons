@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
+import Card from "../components/Card";
 import Icons from "../variables/Icons";
 import unescape from "lodash/unescape";
 import Fuse from "fuse.js";
@@ -8,7 +9,16 @@ const Index = props => {
   const [icons, setIcons] = useState(props.icons);
 
   let options = {
-    keys: ["name", "category"]
+    keys: [
+      {
+        name: "name",
+        weight: 0.3
+      },
+      {
+        name: "category",
+        weight: 0.7
+      }
+    ]
   };
   let fuse = new Fuse(props.icons, options);
   let filterIcons = name => {
@@ -41,48 +51,7 @@ const Index = props => {
       <div className="columns is-multiline">
         {icons.map((icon, key) => (
           <div className="column is-4" key={key}>
-            <div className="card">
-              <header className="card-header">
-                <p className="card-header-title">{icon.category}</p>
-                <a
-                  href="#"
-                  className="card-header-icon"
-                  aria-label="more options"
-                >
-                  <span className="icon">
-                    <i className="fas fa-angle-down" aria-hidden="true" />
-                  </span>
-                </a>
-              </header>
-              <div className="card-content">
-                <div className="content">
-                  <img
-                    className="card-thumb-image"
-                    src={`${icon.path}.svg`}
-                    alt={`${icon.path}`}
-                  />
-                  <br />
-                  <br />
-                  <b>{icon.name}</b>
-                </div>
-              </div>
-              <footer className="card-footer">
-                <a
-                  href={`${icon.path}.png`}
-                  download
-                  className="card-footer-item"
-                >
-                  Download Png
-                </a>
-                <a
-                  href={`${icon.path}.svg`}
-                  download
-                  className="card-footer-item"
-                >
-                  Download Svg
-                </a>
-              </footer>
-            </div>
+            <Card icon={icon} />
           </div>
         ))}
       </div>
@@ -102,16 +71,16 @@ Index.getInitialProps = () => {
     fileElement.map(file => {
       if (file.name.endsWith(".svg")) {
         // remove extension
-        const filename = file.name.replace(/\..+$/, "");
+        const filename = unescape(file.name.replace(/\..+$/, ""));
+        const dirname = unescape(dir.name);
         let icon = {
-          path: unescape(
+          path:
             "./static/GCP Icons/Products & Services/" +
-              dir.name +
-              "/" +
-              filename
-          ),
-          category: unescape(dir.name),
-          name: unescape(filename)
+            dirname +
+            "/" +
+            filename,
+          category: dirname,
+          name: filename
         };
         return icons.push(icon);
       }
