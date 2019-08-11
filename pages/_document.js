@@ -1,32 +1,33 @@
-import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
-import { extractStyles } from 'evergreen-ui';
+import React from "react";
+import Document, { Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     const page = renderPage();
-    const { css, hydrationScript } = extractStyles();
 
     return {
-      ...page,
-      css,
-      hydrationScript,
+      ...page
     };
   }
 
   render() {
-    const { css, hydrationScript } = this.props;
-
     return (
       <html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <style dangerouslySetInnerHTML={{ __html: css }} />
         </Head>
 
         <body>
+          <a
+            className="github-fork-ribbon"
+            href="https://github.com/kevincobain2000/google-cloud-icons"
+            data-ribbon="Fork me on GitHub"
+            title="Fork me on GitHub"
+          >
+            Fork me on GitHub
+          </a>
+
           <Main />
-          {hydrationScript}
           <NextScript />
         </body>
       </html>

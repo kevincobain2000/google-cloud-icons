@@ -1,11 +1,10 @@
-import { BorderBox } from '@primer/components';
-import '../css/styles.scss';
-import '../css/styles.css';
+import "../css/styles.scss";
+import "../css/styles.css";
 
 const Layout = props => (
-  <BorderBox>
-    {props.children}
-  </BorderBox>
+  <div className="container is-widescreen is-mobile">
+    <section>{props.children}</section>
+  </div>
 );
 
 export default Layout;
