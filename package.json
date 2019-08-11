@@ -20,6 +20,7 @@
     "bulma": "^0.7.5",
     "express": "^4.16.4",
     "fuse.js": "^3.4.5",
+    "lodash": ">=4.17.13",
     "isomorphic-unfetch": "^3.0.0",
     "morgan": "^1.9.1",
     "next": "^7.0.2",
