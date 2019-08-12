@@ -9,6 +9,7 @@
     "build": "next build",
     "export": "next build && next export -o dist/",
     "start": "NODE_ENV=production node server.js",
+    "lint": "eslint -c .eslintrc.js --ext .js,.ts,.tsx {pages,components}/**",
     "next-start": "next start"
   },
   "keywords": [],
@@ -30,5 +31,10 @@
     "react-ga": "^2.6.0",
     "react-markdown": "^4.0.3",
     "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.3"
   }
 }
