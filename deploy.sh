@@ -8,6 +8,7 @@ npm run build
 
 # navigate into the build output directory
 cd dist/
+touch .nojekyll
 
 git init
 git add -A
