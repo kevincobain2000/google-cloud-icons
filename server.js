@@ -1,8 +1,8 @@
-const express = require('express');
-const next = require('next');
-var morgan = require('morgan')
+const express = require("express");
+const next = require("next");
+var morgan = require("morgan");
 
-const dev = process.env.NODE_ENV !== 'production';
+const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev, quiet: false });
 
 const handle = app.getRequestHandler();
@@ -13,9 +13,13 @@ app
   .prepare()
   .then(() => {
     const server = express();
-    server.use(morgan('tiny'))
+    server.use(morgan("tiny"));
+    server.use((req, res) => {
+      req.url = req.url.replace("/google-cloud-icons", "");
+      handle(req, res);
+    });
 
-    server.get('*', (req, res) => {
+    server.get("*", (req, res) => {
       return handle(req, res);
     });
 
